@@ -7,9 +7,11 @@ function getData() {
 function debounce(fn, time) {
   let timer;
   return function () {
+    const context = this;
+    const args = arguments;
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
-      fn();
+      func.apply(context, args);
     }, time);
   };
 }

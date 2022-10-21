@@ -39,27 +39,39 @@
 // };
 
 let maxSubArray = function (nums) {
-  let max_so_far = 0,
-    max_ending_here = 0;
-  let startIndex = 0;
-  let endIndex = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] > max_ending_here + nums[i]) {
-      startIndex = i;
-      max_ending_here = nums[i];
-    } else {
-      max_ending_here = max_ending_here + nums[i];
-      //console.log(max_ending_here, startIndex);
-    }
+  // let max_so_far = 0,
+  //   max_ending_here = 0;
+  // let startIndex = 0;
+  // let endIndex = 0;
+  // for (let i = 0; i < nums.length; i++) {
+  //   if (nums[i] > max_ending_here + nums[i]) {
+  //     startIndex = i;
+  //     max_ending_here = nums[i];
+  //   } else {
+  //     max_ending_here = max_ending_here + nums[i];
+  //     //console.log(max_ending_here, startIndex);
+  //   }
 
-    if (max_so_far < max_ending_here) {
-      max_so_far = max_ending_here;
-      endIndex = i;
-      console.log(max_so_far, endIndex);
+  //   if (max_so_far < max_ending_here) {
+  //     max_so_far = max_ending_here;
+  //     endIndex = i;
+  //     console.log(max_so_far, endIndex);
+  //   }
+  // }
+  // //   console.log(startIndex);
+  // return nums.slice(startIndex, endIndex + 1);
+
+  let maxSum = Number.MIN_SAFE_INTEGER;
+  let currentSum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    currentSum = currentSum + nums[i];
+    maxSum = Math.max(currSum, maxSum);
+    if (currentSum < 0) {
+      currentSum = 0;
     }
   }
-  //   console.log(startIndex);
-  return nums.slice(startIndex, endIndex + 1);
+  return maxSum;
 };
 
-console.log(maxSubArray([1, 2, -1, 3, -2]));
+// console.log(maxSubArray([1, 2, -1, 3, -2]));
+console.log(maxSubArray([-1]));
