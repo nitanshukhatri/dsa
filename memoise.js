@@ -1,11 +1,18 @@
+function getUniqueId(fn, args) {
+  let uniqueId = [];
+  uniqueId = uniqueId.concat(fn.name, args);
+  return uniqueId.join("|");
+}
 function myMemoize(fn, context) {
-  const res = {};
+  const cache = {};
   return function (...args) {
+    const uniqueId = getUniqueId(fn, args);
     var argsCache = JSON.stringify(args);
-    if (!res[argsCache]) {
-      res[argsCache] = fn.call(context || this, ...args);
+    if (!cache[uniqueId]) {
+      cache[uniqueId] = fn.call(context || this, ...args);
     }
-    return res[argsCache];
+    console.log(cache);
+    return cache[uniqueId];
   };
 }
 
