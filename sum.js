@@ -4,4 +4,4 @@ function sum(arg) {
   }
   return arg + sum(arg - 1);
 }
-console.log(sum(2));
+console.log(sum(10));
