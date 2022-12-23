@@ -1,3 +1,4 @@
+//https://www.youtube.com/watch?v=-ub_B9njGn8&t=1119s&ab_channel=AyushiSharma
 var checkInclusion = function (s1, s2) {
   if (s2.length < s1) return false;
 
