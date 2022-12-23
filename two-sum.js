@@ -8,7 +8,7 @@ const twoSum = function (nums, target) {
       // console.log(i);
       // console.log(numsHash[difference]);
       // console.log([i, numsHash[difference]]);
-      //return [i, numsHash[difference]];
+      return [i, numsHash[difference]];
     } else {
       numsHash[nums[i]] = i;
       // console.log(numsHash);
