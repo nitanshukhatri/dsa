@@ -8,13 +8,13 @@ const moveZeroes = (nums) => {
   }
   return nums;
 };
-
+// https://www.youtube.com/watch?v=aayNRwUN3Do&t=465s&ab_channel=NeetCode
 const move = (nums) => {
-  let c = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== 0) {
-      [nums[i], nums[c]] = [nums[c], nums[i]];
-      c++;
+  let left = 0;
+  for (let right = 0; right < nums.length; right++) {
+    if (nums[right] !== 0) {
+      [nums[right], nums[left]] = [nums[left], nums[right]];
+      left++;
     }
   }
   return nums;
